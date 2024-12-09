@@ -41,6 +41,7 @@ public class TokenService(IConfiguration conf) : ITokenService
     {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(conf["PrivateSignatureKey"] ?? throw new Exception("Cannot find PrivateSignatureKey"))),
-        ValidateIssuer = true,
+        ValidateIssuer = false,
+        ValidateAudience = false
     };
 }
